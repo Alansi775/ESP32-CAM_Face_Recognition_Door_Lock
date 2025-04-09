@@ -2,7 +2,7 @@
 
 This project implements a **face recognition-based door lock system** using a Wi-Fi module. The system uses facial recognition to identify authorized users and unlock the door. The system is developed using **C** and **C++**.
 
-Project of the Smart Hoem Video Demo: https://www.youtube.com/watch?v=SxPO22OO0eE&t=0s 
+Demo of the Smart Home Video Project: https://www.youtube.com/watch?v=SxPO22OO0eE&t=0s 
 ## Features
 
 - **Face Recognition**: Identifies users based on their facial features and can save more than one face.
