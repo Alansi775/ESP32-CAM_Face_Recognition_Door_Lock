@@ -1,98 +1,76 @@
-Face Recognition Door Lock System with Wi-Fi Module
-This project implements a face recognition-based door lock system using a Wi-Fi module. The system utilizes facial recognition to identify authorized users and, upon successful identification, unlocks the door. The entire system is built using C and C++ programming languages.
+# Face Recognition Door Lock System with Wi-Fi Module for Smart Home System
 
-Features
-Face Recognition: Uses an image capturing module to recognize faces and match them against a pre-trained database.
+This project implements a **face recognition-based door lock system** using a Wi-Fi module. The system uses facial recognition to identify authorized users and unlock the door. The system is developed using **C** and **C++**.
 
-Wi-Fi Integration: The Wi-Fi module (e.g., ESP8266/ESP32) is used to remotely control and interact with the lock system.
+## Features
 
-Secure Door Locking: Upon successful recognition, the system sends a signal to unlock the door.
+- **Face Recognition**: Identifies users based on their facial features and can save more than one face.
+- **Wi-Fi Integration**: Uses an ESP8266/ESP32 Wi-Fi module for remote control and communication.
+- **Secure Door Locking**: Automatically unlocks the door when an authorized face is recognized.
+- **Real-Time Feedback**: Displays status updates for successful or failed recognition.
 
-Real-Time Monitoring: The system provides feedback and updates on the recognition status.
+## Components Used
 
-Components Used
-Microcontroller: (e.g., Arduino, ESP32, etc.)
+- **Microcontroller**: STM32F411RE, ESP32.
+- **Camera Module**: Used for capturing images for face recognition ( ESP32 CAM ).
+- **Wi-Fi Module**: ESP8266/ESP32 for internet communication.
+- **Servo Motor**: Used to control the door lock mechanism.
+- **Face Recognition Software**: OpenCV.
 
-Camera Module: Used for capturing images for face recognition (e.g., OV7670, or compatible camera module).
+## Getting Started
 
-Wi-Fi Module: ESP8266/ESP32 (for Wi-Fi communication).
+### Prerequisites
 
-Servo Motor: For physically unlocking the door.
+Before running this system, ensure you have the following installed:
 
-Face Recognition Software: Built using OpenCV or similar library for facial recognition.
+- **Arduino IDE** (or any other compatible IDE)
+- **OpenCV** (for face recognition if you're using a PC for processing)
+- **ESP8266/ESP32 Libraries** (for communication between the microcontroller and Wi-Fi module)
+- **12V door lock or Servo Motor** (for Unlocking the door lock)
 
-Getting Started
-Prerequisites
-Before running the system, make sure you have the following installed:
+### Hardware Setup
 
-Arduino IDE (or any other compatible IDE)
+1. **Microcontroller**: Connect the ESP32 or Arduino to your computer via USB.
+2. **Camera Module**: Connect the camera module to the appropriate pins on the microcontroller.
+3. **Servo Motor**: Wire the servo motor to the microcontroller to control the lock.
+4. **Wi-Fi Module**: If using ESP8266, connect it to the microcontroller for Wi-Fi access.
 
-OpenCV (for face recognition if you're using a PC for processing)
+### Software Setup
 
-ESP8266/ESP32 Libraries (for communication between the microcontroller and Wi-Fi module)
+1. Clone the repository to your local machine:
+    ```bash
+    git clone https://github.com/Alansi775/ESP32-CAM_Face_Recognition_Door_Lock.git
+    cd ESP32-CAM_Face_Recognition_Door_Lock
+    ```
 
-Servo Motor Library (for controlling the lock)
+2. Open the **Arduino IDE** and load the code from the `src` folder onto your microcontroller.
 
-Hardware Setup
-Microcontroller: Connect the ESP32 or Arduino to your computer using a USB cable.
+3. Install the necessary libraries:
+   - **ESP32/ESP8266 Libraries** for communication.
+   - **OpenCV** (if you're using a PC for face recognition).
+   - **Servo Motor Library** for controlling the locking mechanism.
 
-Camera Module: Connect the camera module to the appropriate pins on the microcontroller.
+4. Update the Wi-Fi credentials in the code (`wifi_config.h`) with your **SSID** and **Password**.
 
-Servo Motor: Wire the servo motor to control the door lock.
+5. Train the facial recognition model (if applicable) to ensure it correctly recognizes faces.
 
-Wi-Fi Module: If using ESP8266, connect it to the microcontroller for internet access and communication.
+6. Upload the code to your microcontroller.
 
-Software Setup
-Clone this repository to your local machine.
+### Running the System
 
-bash
-Copy
-git clone https://github.com/yourusername/face-recognition-door-lock.git
-cd face-recognition-door-lock
-Open the Arduino IDE (or your preferred IDE) and load the appropriate code from the src folder onto your microcontroller.
+1. Power on the system. The Wi-Fi module should connect to the configured network.
+2. The camera module will start capturing images and attempt to recognize faces.
+3. If an authorized face is detected, the servo motor will unlock the door.
+4. If an unauthorized face is detected, the system will notify you and deny access.
 
-Ensure that the libraries for the ESP32/ESP8266 and OpenCV (if required) are properly installed.
+## File Structure
 
-Configure the Wi-Fi settings in the code, inputting your network credentials (SSID and Password).
-
-Train the facial recognition model (if applicable) and ensure the system can detect faces and match them correctly.
-
-Upload the code to the microcontroller.
-
-Running the System
-Once the system is set up:
-
-Power on the system, and the Wi-Fi module should connect to the configured network.
-
-The camera module will start capturing images and perform face recognition.
-
-If an authorized face is detected, the servo motor will be triggered to unlock the door.
-
-Control via Wi-Fi
-Use any compatible mobile app or web interface to control and monitor the door lock system via the Wi-Fi module.
-
-The system can also send status updates over Wi-Fi for remote monitoring.
-
-File Structure
-bash
-Copy
+```plaintext
 /src
     ├── main.cpp           # Main program for controlling the system
-    ├── wifi_config.h      # Wi-Fi settings configuration
-    └── face_recognition.cpp  # Face recognition module
+    ├── wifi_config.h      # Wi-Fi configuration settings
+    └── face_recognition.cpp  # Face recognition logic
 /include
     └── face_recognition.h # Header file for face recognition functions
 /libs
     └── OpenCV            # Library for face recognition (if using on PC)
-Contributing
-If you would like to contribute to this project, feel free to fork the repository and submit a pull request. Please ensure your code follows the existing coding conventions and passes all tests.
-
-License
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-Acknowledgements
-OpenCV: For facial recognition.
-
-ESP32/ESP8266 Libraries: For Wi-Fi communication.
-
-Servo Motor: For locking mechanism control.
